@@ -147,99 +147,6 @@ This section provides a comprehensive guide on how to create and effectively man
 
 ## Thread Synchronization
 Thread synchronization is crucial in concurrent programming to ensure that multiple threads can safely access shared resources without causing data corruption or race conditions. 
-This section provides insights into synchronization mechanisms using the synchronized keyword in Java.
-
-### Synchronization Overview
-* **Need for Synchronization**: Preventing data corruption and ensuring consistent results in a multi-threaded environment.
-* **Critical Sections**: Identifying sections of code where only one thread should execute at a time.
-* **Shared Resources**: Understanding the challenges when multiple threads access shared resources concurrently.
-
-### Synchronized Methods
-* **Definition**: Methods declared with the synchronized keyword.
-* **Usage**: Ensures that only one thread can execute the synchronized method at a time. The entire method becomes a critical section, preventing interleaved execution.
-* **Example**:
-  ```java
-  class SharedResource {
-      private int count = 0;
-  
-      // Synchronized method
-      public synchronized void increment() {
-          for (int i = 0; i < 5; i++) {
-              count++;
-              System.out.println(Thread.currentThread().getName() + " - Count: " + count);
-              try {
-                  Thread.sleep(200); // Simulating some work
-              } catch (InterruptedException e) {
-                  e.printStackTrace();
-              }
-          }
-      }
-  }
-  
-  public class SynchronizedMethodsExample {
-      public static void main(String[] args) {
-          // Creating an instance of SharedResource
-          SharedResource sharedResource = new SharedResource();
-  
-          // Creating multiple threads that share the same instance
-          Thread threadA = new Thread(() -> sharedResource.increment(), "Thread A");
-          Thread threadB = new Thread(() -> sharedResource.increment(), "Thread B");
-  
-          // Starting the threads
-          threadA.start();
-          threadB.start();
-      }
-  }
-
-  ```
-### Synchronized Blocks
-* **Definition**: Blocks of code surrounded by the synchronized keyword.
-* **Usage**: Allows synchronization of specific sections rather than entire methods. Allows more fine-grained control over synchronization.
-* **Example**:
-  ```java
-  class SharedResource {
-      private int count = 0;
-      private Object lock = new Object(); // Object used for synchronization
-  
-      // Synchronized block
-      public void increment() {
-          synchronized (lock) {
-              for (int i = 0; i < 5; i++) {
-                  count++;
-                  System.out.println(Thread.currentThread().getName() + " - Count: " + count);
-                  try {
-                      Thread.sleep(200); // Simulating some work
-                  } catch (InterruptedException e) {
-                      e.printStackTrace();
-                  }
-              }
-          }
-      }
-  }
-  
-  public class SynchronizedBlocksExample {
-      public static void main(String[] args) {
-          // Creating an instance of SharedResource
-          SharedResource sharedResource = new SharedResource();
-  
-          // Creating multiple threads that share the same instance
-          Thread threadA = new Thread(() -> sharedResource.increment(), "Thread A");
-          Thread threadB = new Thread(() -> sharedResource.increment(), "Thread B");
-  
-          // Starting the threads
-          threadA.start();
-          threadB.start();
-      }
-  }
-
-  ```
-
-In both examples, two threads (Thread A and Thread B) are concurrently incrementing a shared variable (count) within a synchronized context. This ensures that only one thread can execute the increment operation at a time, preventing race conditions.
-
-### Micro Quiz:
-* Why is synchronization necessary in concurrent programming?
-* How does the synchronized keyword help in preventing race conditions?
-* What is a critical section in the context of thread synchronization?
 
 ## Quiz:
 
@@ -250,5 +157,3 @@ In both examples, two threads (Thread A and Thread B) are concurrently increment
 * Describe the key phases in the lifecycle of a thread.
 * What are the two ways to create a thread in Java?
 * Briefly describe the lifecycle of a thread.
-* Explain the role of synchronized methods in preventing thread interference.
-* What advantages do synchronized blocks offer over synchronized methods?
