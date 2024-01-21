@@ -153,7 +153,7 @@ Consider the performance characteristics of the specific scenario and choose the
 
 Certainly! Here are some quiz questions to test your understanding of the best practices in concurrent programming:
 
-**Quiz:**
+## Quiz:
 
 1.  **Avoiding Deadlocks:**
     
