@@ -57,3 +57,11 @@
 - Fork/Join Framework
 - Parallel Streams in Java
 - Atomic Variables and Non-blocking Algorithms
+
+[Chapter 11: Concurrency Trade-offs](./Chapters/Chapter-11-00.md)
+- Performance vs. Complexity
+- Scalability vs. Overhead
+- Deadlocks and Race Conditions
+- Maintainability vs. Performance Gains
+- Example Scenario: Web Server
+Concurrency Trade-offs: In-depth Discussion
