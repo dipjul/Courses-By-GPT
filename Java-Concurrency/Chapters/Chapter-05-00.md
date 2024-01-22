@@ -57,6 +57,7 @@ It is designed to simplify the development of multithreaded applications by deco
       // Task logic that returns an Integer result
       return 42;
   });
+  ```
   - Future Interface: Represents the result of an asynchronous computation, allowing checking if the computation is complete and retrieving the result.
 
 2. **Runnable Interface**:
